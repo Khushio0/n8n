@@ -764,6 +764,9 @@ onMounted(() => {
 	nodeViewEventBus.on('deleteWorkflow', handleDeleteWorkflow);
 	nodeViewEventBus.on('renameWorkflow', onNameToggle);
 	nodeViewEventBus.on('addTag', onTagsEditEnable);
+	telemetry.track('Very special event', {
+		user_id: usersStore.currentUser?.id,
+	});
 });
 
 onBeforeUnmount(() => {

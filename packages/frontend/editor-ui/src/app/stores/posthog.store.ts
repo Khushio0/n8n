@@ -181,7 +181,10 @@ export const usePostHog = defineStore('posthog', () => {
 
 	const capture = (event: string, properties: IDataObject) => {
 		if (typeof window.posthog?.capture === 'function') {
+			console.log(`[POSTHOG STORE] Capture: ${event}`, properties);
 			window.posthog.capture(event, properties);
+		} else {
+			console.log(`[POSTHOG STORE] Capture skipped, PostHog not initialized: ${event}`, properties);
 		}
 	};
 

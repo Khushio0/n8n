@@ -109,6 +109,7 @@ export class Telemetry {
 			},
 		});
 
+		console.log('[TELEMETRY] track:', event, updatedProperties);
 		usePostHog().capture(event, updatedProperties);
 	}
 

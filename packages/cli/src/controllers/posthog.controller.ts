@@ -33,6 +33,7 @@ export class PostHogController {
 	// Main event capture endpoint
 	@Post('/capture/', { skipAuth: true, rateLimit: { limit: 200, windowMs: 60_000 } })
 	async capture(req: AuthenticatedRequest, res: Response, next: NextFunction) {
+		console.log('==> Capture endpoint called');
 		return await this.proxy(req, res, next);
 	}
 
@@ -51,6 +52,7 @@ export class PostHogController {
 	// Session recording events (alternative endpoint)
 	@Post('/e/', { skipAuth: true, rateLimit: { limit: 50, windowMs: 60_000 } })
 	async sessionEvents(req: AuthenticatedRequest, res: Response, next: NextFunction) {
+		console.log('==> Session events endpoint called', req.body);
 		return await this.proxy(req, res, next);
 	}
 

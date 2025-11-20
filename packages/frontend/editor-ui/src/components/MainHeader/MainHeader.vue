@@ -24,6 +24,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { useLocalStorage } from '@vueuse/core';
 import GithubButton from 'vue-github-button';
 import type { FolderShortInfo } from '@/Interface';
+import { useTelemetry } from '@/composables/useTelemetry';
 
 const router = useRouter();
 const route = useRoute();
@@ -112,6 +113,7 @@ onBeforeUnmount(() => {
 
 onMounted(async () => {
 	dirtyState.value = uiStore.stateIsDirty;
+	useTelemetry().track('Very special event');
 	syncTabsWithRoute(route);
 });
 

@@ -1,0 +1,248 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -96,
+        0
+      ],
+      "id": "4ee769e3-5867-4be1-9190-10a9793f5868",
+      "name": "When chat message received",
+      "webhookId": "e44bf03d-178e-4dce-b919-5668967a2a08"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        248,
+        0
+      ],
+      "id": "7cbb65c4-2452-454e-89a8-9b3388008f73",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        128,
+        224
+      ],
+      "id": "ce3ca1b4-d120-466e-8e8e-dd1085c09d3c",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "bTj4TSQaO3bzysCh",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        256,
+        224
+      ],
+      "id": "2c1c46f0-369b-4b08-879c-678e903113df",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1QEecGnUe0131RCxPAJBo0musnAkExeR_C5sKAUcFV5c",
+          "mode": "list",
+          "cachedResultName": "Khushi Sharma Excel ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QEecGnUe0131RCxPAJBo0musnAkExeR_C5sKAUcFV5c/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 909245651,
+          "mode": "list",
+          "cachedResultName": "Copy of Khushi Sharma",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QEecGnUe0131RCxPAJBo0musnAkExeR_C5sKAUcFV5c/edit#gid=909245651"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        384,
+        224
+      ],
+      "id": "a5b712a6-4790-4112-a030-b7f31a82efda",
+      "name": "Get FAQ",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "F58UhMzDQGxQjjBb",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "source": "googleSheets",
+        "documentId": {
+          "__rl": true,
+          "value": "1xnQ0AUq7CS8FrH7xRDDrNTUDlRLA2HAICvvQ-3LOQ8Y",
+          "mode": "list",
+          "cachedResultName": "No. of interns list",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1xnQ0AUq7CS8FrH7xRDDrNTUDlRLA2HAICvvQ-3LOQ8Y/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "No. of interns ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1xnQ0AUq7CS8FrH7xRDDrNTUDlRLA2HAICvvQ-3LOQ8Y/edit#gid=0"
+        }
+      },
+      "type": "n8n-nodes-base.evaluation",
+      "typeVersion": 4.8,
+      "position": [
+        720,
+        0
+      ],
+      "id": "466b5752-e2d2-4a95-848a-3747de611726",
+      "name": "Evaluation",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "F58UhMzDQGxQjjBb",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1QEecGnUe0131RCxPAJBo0musnAkExeR_C5sKAUcFV5c",
+          "mode": "list",
+          "cachedResultName": "Khushi Sharma Excel ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QEecGnUe0131RCxPAJBo0musnAkExeR_C5sKAUcFV5c/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1894589303,
+          "mode": "list",
+          "cachedResultName": "Khushi Sharma",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QEecGnUe0131RCxPAJBo0musnAkExeR_C5sKAUcFV5c/edit#gid=1894589303"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        512,
+        224
+      ],
+      "id": "67df0ccb-24c9-4f8f-932d-082e500ccb73",
+      "name": "Articles List",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "F58UhMzDQGxQjjBb",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get FAQ": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Evaluation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Articles List": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Evaluation": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "10ede71d-5e7e-49e7-b964-9715344d868f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "8ce6dbf9e3eb8055db4c4c51756eb9bb465c9dbb2d87f039b3b24527ea250d55"
+  },
+  "id": "OzoppHAiKonG16em",
+  "tags": []
+}
